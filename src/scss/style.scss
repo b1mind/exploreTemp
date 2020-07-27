@@ -1,5 +1,5 @@
 //- //< Sassy settings
-$minWidthLg: 1000px;
+$minWidthLg: 1119px;
 $minWidthMed: 800px;
 $minWidthSml: 420px;
 //- //>Base settings
@@ -53,9 +53,6 @@ h1 {
 	color: var(--ctr-dark);
 }
 
-h2 {
-}
-
 h3 {
 	margin: 0.25em 0;
 	font-size: 1.1rem;
@@ -64,7 +61,7 @@ h3 {
 }
 
 .wrap {
-	max-width: 1199px;
+	max-width: $minWidthLg;
 	margin: 0 auto;
 }
 
@@ -75,15 +72,17 @@ h3 {
 .grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-	text-align: center;
+	gap: 1rem;
+	justify-items: center;
+	text-align: left;
 }
 
 .flex {
 	display: flex;
 	justify-content: space-between;
+	@media (max-width: $minWidthLg) {
+		flex-wrap: wrap;
+	}
 }
 
 header {
@@ -162,7 +161,7 @@ header {
 .features {
 	background: var(--clr-secondary);
 	.box {
-		min-width: 320px;
+		width: 320px;
 		padding: 1rem;
 	}
 	i {
@@ -176,8 +175,14 @@ header {
 	}
 }
 
+main {
+	margin: 4rem 0;
+}
+
 .packages,
-.arrows {
+.arrows,
+.destinations,
+.specials-title {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -187,5 +192,78 @@ header {
 	h2 {
 		margin-right: 2rem;
 		text-transform: uppercase;
+	}
+}
+
+.package-gallery {
+	position: relative;
+	z-index: 69;
+	img {
+		object-fit: cover;
+		align-self: center;
+	}
+	.cell {
+		max-width: 450px;
+
+		background: var(--clr-light);
+		overflow: hidden;
+		transition: transform 0.5s;
+		&:hover {
+			position: relative;
+			transform: scale(1.05);
+			box-shadow: 0px 0px 0.75px 0.2px black;
+			z-index: 69;
+		}
+		&-text {
+			text-align: left;
+		}
+	}
+}
+
+.destinations-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	justify-items: center;
+	img {
+		object-fit: cover;
+		align-self: center;
+	}
+	.cell {
+		max-width: 450px;
+		min-height: 420px;
+	}
+}
+
+.book {
+	max-height: 400px;
+	margin: 200px 0;
+	background: var(--clr-secondary);
+	&-text {
+		max-width: 50%;
+	}
+	&-img {
+		position: relative;
+		min-width: 450px;
+		transform: translate(0, -20%);
+	}
+	&-img::after {
+		content: ' ';
+		position: absolute;
+		bottom: -50px;
+		left: -150px;
+		width: 300px;
+		height: 200px;
+		background: url('https://picsum.photos/300/200?random=69');
+		z-index: 69;
+	}
+}
+
+.specials-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	justify-items: center;
+	gap: 1rem;
+	.cell {
+		max-width: 300px;
 	}
 }

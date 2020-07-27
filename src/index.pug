@@ -8,7 +8,7 @@ html(lang="en")
 		link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css', rel='stylesheet', type='text/css')
 		script(defer src="https://use.fontawesome.com/991e61a5a1.js")
 		script(defer src="js/main.js")
-		title Change ME!
+		title Explore, Adventure, Travel
 
 	body
 		header
@@ -18,7 +18,7 @@ html(lang="en")
 						li 
 							i.fas.fa-phone  (800) 555 5555
 						li 
-							i.fas.fa-email info@explore.com
+							i.fas.fa-envelope  info@explore.com
 						li Eng
 
 				nav
@@ -82,13 +82,129 @@ html(lang="en")
 					.packages
 						h2 Popular Packages
 						h3 
-							a() View All
+							a() View All Packages
 					.arrows
 						i.fas.fa-chevron-left
 						i.fas.fa-chevron-right
-				-let a = 6
+				-let a = 3
 				.package-gallery.grid
 					while a > 0
 						.cell
-							img(src="https://picsum.photos/350/200?random="+a)
+							img(src="https://picsum.photos/450/200?random="+a)
+							.cell-text 
+								h3 Cabin in da woods
+								p from 
+									span.price $700-$800
+								.cell-nav.flex
+									a.btn() Buy Now
+									.icons
+										i.fas.fa-search
+										i.fas.fa-heart
 							-a--
+		section.wrap
+				.flex
+					.destinations
+						h2 Popular Destinations
+						h3 
+							a() View All Destinations
+					.arrows
+						i.fas.fa-chevron-left
+						i.fas.fa-chevron-right
+				p We offer the perfect experience for anyone's adventure
+		section
+			-let b = 5
+			.destinations-gallery
+				while b > 0
+					.cell
+						img(src="https://picsum.photos/450/620?random="+b)
+						-b--
+		section.wrap.flex
+			.category
+				h2 Browse Tours by Category
+				.category-nav.flex
+					ul
+						li test
+						li test
+						li test
+						li test
+					ul
+						li test
+						li test
+						li test
+						li test
+					ul
+						li test
+						li test
+						li test
+						li test
+			.newsletter
+				h2 Our Newsletter
+				p Sign up to stay informed on latest sales!
+				input(type="text" placeholder="Your@emaill.com")
+				button.btn() Submit
+				.social-icons
+					i.fab.fa-twitter
+					i.fab.fa-github
+					i.fab.fa-codepen
+					i.fab.fa-instagram
+		section.book
+			.wrap.flex
+				.book-text
+					h1 Book Your Trip
+					p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi veniam modi cum odit! Fugiat ipsa inventore
+					.offers.flex
+						.protect
+							h3 Protect your trip
+							p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex voluptas tempora non exercitationem ipsa! Odit ipsum.
+						.perfect
+							h3 Perfect Offers
+							p similique quod harum corporis. Totam iure earum placeat laborum quas necessitatibus, rerum voluptates odit.
+
+					a.btn() Book an adventure!
+
+				.book-img
+					img(src="https://picsum.photos/450/620?random="+b)
+		section.specials.wrap
+			.flex
+				.specials-title
+					h2 Special Offers
+					h3 
+						a() View All Offers
+				.arrows
+					i.fas.fa-chevron-left
+					i.fas.fa-chevron-right
+			-let c = 4
+			.specials-gallery
+				while c > 0
+					.cell
+						img(src="https://picsum.photos/300/200?random="+c)
+						.cell-text 
+							h3 Cabin in da woods
+							p from 
+								span.price $700-$800
+							.cell-nav.flex
+								a.btn() Buy Now
+								.icons
+									i.fas.fa-search
+									i.fas.fa-heart
+						-c--
+		section.reviews.wrap
+			.flex
+				.reviews-title
+					h2 What Our Customers Say
+					p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quo, cumque incidunt odit laborum a. 
+				.arrows
+					i.fas.fa-chevron-left
+					i.fas.fa-chevron-right
+			-let d = 3
+			.review-cards.flex
+				while d > 0
+					.card.center
+						span Review for 
+							h3 Category
+						.stars
+						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus saepe unde nesciunt repellendus fugiat libero ullam eligendi magni? Ab perferendis sapiente beatae expedita autem cum, officiis asperiores. Amet, natus quo.
+						span.review-user
+							i.fas.fa-user
+							span Bill Murray
+							-d--
