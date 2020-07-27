@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+		link(rel="stylesheet", href="scss/style.scss")
+		link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css', rel='stylesheet', type='text/css')
+		script(defer src="https://use.fontawesome.com/991e61a5a1.js")
+		script(defer src="js/main.js")
+		title Change ME!
+
+	body
+		header
+			.wrap.flex
+				nav
+					ul.navContact
+						li 
+							i.fas.fa-phone  (800) 555 5555
+						li 
+							i.fas.fa-email info@explore.com
+						li Eng
+
+				nav
+					ul.navUser
+						li 
+							i.fas.fa-search
+						li 
+							i.fas.fa-heart
+						li 
+							i.fas.fa-user
+						li 
+							i.fas.fa-shopping-cart
+
+			.wrap.flex
+				.logo Explore 
+				nav
+					ul.navMain
+						li Home
+						li Catalog
+						li Collections
+						li Specials
+						li Contact Us
+		section.hero
+			.wrap
+				h3 Be inspired
+				h1 Explore, Adventure, Travel
+				p Create memories with amazing experiences. 
+				.tally.flex
+					.box
+						h3 420+
+						p reviews
+					.box
+						h3 69+
+						p places
+					.box
+						h3 9000+
+						p locations
+				a.btn() Explore Now
+
+		section.features
+			.wrap.flex
+				.box
+					i.fas.fa-plane
+					h2 Flight included
+					p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur cupiditate, voluptas dolorum sit 
+				.box
+					i.fas.fa-ticket-alt
+					h2 Best Price Guarantee
+					p impedit est, aut dignissimos doloribus nobis aspernatur omnis. 
+				.box
+					i.fas.fa-phone-volume
+					h2 Customer Service
+					p Perspiciatis ipsam modi nihil in aut tempora ea voluptate. 
+				.box
+					i.fas.fa-shield-alt
+					h2 Secure Payments
+					p Perspiciatis ipsam modi nihil in aut tempora ea voluptate. 
+		main
+			section.wrap
+				.flex
+					.packages
+						h2 Popular Packages
+						h3 
+							a() View All
+					.arrows
+						i.fas.fa-chevron-left
+						i.fas.fa-chevron-right
+				-let a = 6
+				.package-gallery.grid
+					while a > 0
+						.cell
+							img(src="https://picsum.photos/350/200?random="+a)
+							-a--
