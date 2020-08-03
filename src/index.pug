@@ -16,7 +16,7 @@ html(lang="en")
 				nav
 					ul.navContact
 						li 
-							i.fas.fa-phone  (800) 555 5555
+							i.fas.fa-phone  (800) 555-5555
 						li 
 							i.fas.fa-envelope  info@explore.com
 						li Eng
@@ -41,7 +41,7 @@ html(lang="en")
 						li Collections
 						li Specials
 						li Contact Us
-		section.hero
+		.hero
 			.wrap
 				h3 Be inspired
 				h1 Explore, Adventure, Travel
@@ -49,16 +49,17 @@ html(lang="en")
 				.tally.flex
 					.box
 						h3 420+
-						p reviews
+						p Locations
 					.box
 						h3 69+
-						p places
+						p Places
 					.box
 						h3 9000+
-						p locations
-				a.btn() Explore Now
+						p Trips
+				p
+					a.btn() Explore Now
 
-		section.features
+		.features
 			.wrap.flex
 				.box
 					i.fas.fa-plane
@@ -87,14 +88,14 @@ html(lang="en")
 						i.fas.fa-chevron-left
 						i.fas.fa-chevron-right
 				-let a = 3
-				.package-gallery.grid
+				.package-gallery
 					while a > 0
 						.cell
 							img(src="https://picsum.photos/450/200?random="+a)
 							.cell-text 
-								h3 Cabin in da woods
+								span Cabin in da woods
 								p from 
-									span.price $700-$800
+									h3.price $700-$800
 								.cell-nav.flex
 									a.btn() Buy Now
 									.icons
@@ -102,45 +103,45 @@ html(lang="en")
 										i.fas.fa-heart
 							-a--
 		section.wrap
-				.flex
-					.destinations
-						h2 Popular Destinations
-						h3 
-							a() View All Destinations
-					.arrows
-						i.fas.fa-chevron-left
-						i.fas.fa-chevron-right
-				p We offer the perfect experience for anyone's adventure
-		section
-			-let b = 5
-			.destinations-gallery
-				while b > 0
-					.cell
-						img(src="https://picsum.photos/450/620?random="+b)
-						-b--
+			.flex
+				.destinations
+					h2 Popular Destinations
+					h3 
+						a() View All Destinations
+				.arrows
+					i.fas.fa-chevron-left
+					i.fas.fa-chevron-right
+			p We offer the perfect experience for anyone's adventure
+
+		-let b = 5
+		.destinations-gallery
+			while b > 0
+				.cell
+					img(src="https://picsum.photos/450/650?random="+b)
+					-b--
 		section.wrap.flex
 			.category
 				h2 Browse Tours by Category
 				.category-nav.flex
 					ul
-						li test
-						li test
-						li test
-						li test
+						li Lorem ipsum
+						li dolor sit amet
+						li consectetur
+						li adipisicing
 					ul
-						li test
-						li test
-						li test
-						li test
+						li dignissimos
+						li id officia
+						li voluptate
+						li ad dolor
 					ul
-						li test
-						li test
-						li test
-						li test
+						li Minima possimus
+						li ab veritatis
+						li dolorum doloribus
+						li esse repellat
 			.newsletter
 				h2 Our Newsletter
 				p Sign up to stay informed on latest sales!
-				input(type="text" placeholder="Your@emaill.com")
+				input(type="text" placeholder="your@emaill.com")
 				button.btn() Submit
 				.social-icons
 					i.fab.fa-twitter
@@ -159,8 +160,8 @@ html(lang="en")
 						.perfect
 							h3 Perfect Offers
 							p similique quod harum corporis. Totam iure earum placeat laborum quas necessitatibus, rerum voluptates odit.
-
-					a.btn() Book an adventure!
+					p
+						a.btn() Book an adventure!
 
 				.book-img
 					img(src="https://picsum.photos/450/620?random="+b)
@@ -179,9 +180,9 @@ html(lang="en")
 					.cell
 						img(src="https://picsum.photos/300/200?random="+c)
 						.cell-text 
-							h3 Cabin in da woods
+							span Cabin in da woods
 							p from 
-								span.price $700-$800
+								h3.price $700-$800
 							.cell-nav.flex
 								a.btn() Buy Now
 								.icons
@@ -208,3 +209,38 @@ html(lang="en")
 							i.fas.fa-user
 							span Bill Murray
 							-d--
+		footer
+			.nav-footer.wrap.flex
+				ul Customer Service
+					li item1
+					li item2
+					li item3
+					li item4
+					li item5
+				ul Your Account
+					li item1
+					li item2
+					li item3
+					li item4
+					li item5
+				ul Our Company
+					li item1
+					li item2
+					li item3
+					li item4
+					li item5
+				ul Satisfaction 
+					li item1
+					li item2
+					li item3
+					li item4
+					li item5
+			.links.wrap.flex
+				h4 copyright stuffs 2020
+				.links-paymentTypes
+					h4 all major cards accepted
+				.social-icons
+					i.fab.fa-twitter
+					i.fab.fa-github
+					i.fab.fa-codepen
+					i.fab.fa-instagram

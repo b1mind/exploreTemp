@@ -1,7 +1,7 @@
 //- //< Sassy settings
-$minWidthLg: 1119px;
-$minWidthMed: 800px;
-$minWidthSml: 420px;
+$minWidthLg: 1190px;
+$minWidthMed: 950px;
+$minWidthSml: 656px;
 //- //>Base settings
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 
@@ -30,6 +30,9 @@ body {
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
 	background: var(--clr-light);
+	@media (max-width: $minWidthSml) {
+		font-size: 14px;
+	}
 }
 
 a,
@@ -63,18 +66,14 @@ h3 {
 .wrap {
 	max-width: $minWidthLg;
 	margin: 0 auto;
+	@media (max-width: $minWidthLg) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 }
 
 .center {
 	text-align: center;
-}
-
-.grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	gap: 1rem;
-	justify-items: center;
-	text-align: left;
 }
 
 .flex {
@@ -83,6 +82,13 @@ h3 {
 	@media (max-width: $minWidthLg) {
 		flex-wrap: wrap;
 	}
+}
+
+.btn {
+	padding: 0.5em 0.75em;
+	display: inline-block;
+	background: var(--clr);
+	border: none;
 }
 
 header {
@@ -160,6 +166,16 @@ header {
 
 .features {
 	background: var(--clr-secondary);
+	@media (max-width: $minWidthLg) {
+		.wrap {
+			max-width: 900px;
+		}
+	}
+	@media (max-width: $minWidthMed) {
+		.flex {
+			justify-content: space-evenly;
+		}
+	}
 	.box {
 		width: 320px;
 		padding: 1rem;
@@ -172,11 +188,17 @@ header {
 		font-size: 1.2rem;
 		display: inline-block;
 		text-transform: uppercase;
+		&::after {
+			content: attr(data-feature) '';
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 	}
 }
 
-main {
-	margin: 4rem 0;
+section {
+	padding-top: 6rem;
 }
 
 .packages,
@@ -186,9 +208,6 @@ main {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	@media (max-width: 420px) {
-		color: red;
-	}
 	h2 {
 		margin-right: 2rem;
 		text-transform: uppercase;
@@ -196,6 +215,10 @@ main {
 }
 
 .package-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	justify-items: center;
+	gap: 1rem;
 	position: relative;
 	z-index: 69;
 	img {
@@ -204,10 +227,9 @@ main {
 	}
 	.cell {
 		max-width: 450px;
-
 		background: var(--clr-light);
 		overflow: hidden;
-		transition: transform 0.5s;
+		transition: transform 0.3s;
 		&:hover {
 			position: relative;
 			transform: scale(1.05);
@@ -224,27 +246,52 @@ main {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	justify-items: center;
+	background: url('https://picsum.photos/950/950?random=420') no-repeat bottom right;
+	background-size: cover;
+	@media (max-width: $minWidthLg) {
+		background-size: unset;
+	}
+	@media (max-width: $minWidthSml) {
+		background: none;
+	}
 	img {
+		height: min-content;
 		object-fit: cover;
 		align-self: center;
 	}
 	.cell {
-		max-width: 450px;
-		min-height: 420px;
+		max-height: 650px;
 	}
 }
 
 .book {
-	max-height: 400px;
-	margin: 200px 0;
+	max-height: 500px;
+	margin: 6rem 0;
 	background: var(--clr-secondary);
+	@media (max-width: $minWidthLg) {
+		max-height: max-content;
+	}
+	@media (max-width: $minWidthMed) {
+		max-height: max-content;
+		.flex {
+			text-align: center;
+			justify-content: center;
+		}
+	}
 	&-text {
 		max-width: 50%;
+		@media (max-width: $minWidthMed) {
+			max-width: 100%;
+		}
 	}
 	&-img {
 		position: relative;
 		min-width: 450px;
-		transform: translate(0, -20%);
+		transform: translate(0, -25%);
+		@media (max-width: $minWidthLg) {
+			min-width: 360px;
+			transform: none;
+		}
 	}
 	&-img::after {
 		content: ' ';
@@ -255,15 +302,22 @@ main {
 		height: 200px;
 		background: url('https://picsum.photos/300/200?random=69');
 		z-index: 69;
+		@media (max-width: $minWidthSml) {
+			left: 30px;
+		}
 	}
 }
 
 .specials-gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	justify-items: center;
-	gap: 1rem;
+	@extend .package-gallery;
 	.cell {
 		max-width: 300px;
+	}
+}
+
+footer {
+	margin-top: 6rem;
+	.flex {
+		align-items: center;
 	}
 }
