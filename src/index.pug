@@ -4,7 +4,7 @@ html(lang="en")
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
-		link(rel="stylesheet", href="scss/style.scss")
+		link(rel="stylesheet", href="./scss/style.scss")
 		link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css', rel='stylesheet', type='text/css')
 		script(defer src="https://use.fontawesome.com/991e61a5a1.js")
 		script(defer src="js/main.js")
@@ -12,35 +12,32 @@ html(lang="en")
 
 	body
 		header
-			.wrap.flex
-				nav
-					ul.navContact
-						li 
-							i.fas.fa-phone  (800) 555-5555
-						li 
-							i.fas.fa-envelope  info@explore.com
-						li Eng
+			nav.wrap.flex
+				ul.navContact
+					li 
+						i.fas.fa-phone  (800) 555-5555
+					li 
+						i.fas.fa-envelope  info@explore.com
+					li Eng
 
-				nav
-					ul.navUser
-						li 
-							i.fas.fa-search
-						li 
-							i.fas.fa-heart
-						li 
-							i.fas.fa-user
-						li 
-							i.fas.fa-shopping-cart
+				ul.navUser
+					li 
+						i.fas.fa-search
+					li 
+						i.fas.fa-heart
+					li 
+						i.fas.fa-user
+					li 
+						i.fas.fa-shopping-cart
 
 			.wrap.flex
 				.logo Explore 
-				nav
-					ul.navMain
-						li Home
-						li Catalog
-						li Collections
-						li Specials
-						li Contact Us
+				ul.navMain
+					li Home
+					li Catalog
+					li Collections
+					li Specials
+					li Contact Us
 		.hero
 			.wrap
 				h3 Be inspired
@@ -89,7 +86,7 @@ html(lang="en")
 						i.fas.fa-chevron-left
 						i.fas.fa-chevron-right
 				-let a = 3
-				.package-gallery
+				.packages-gallery
 					while a > 0
 						.cell
 							img(src="https://picsum.photos/450/200?random="+a)
@@ -163,9 +160,9 @@ html(lang="en")
 							p similique quod harum corporis. Totam iure earum placeat laborum quas necessitatibus, rerum voluptates odit.
 					p
 						a.btn() Book an adventure!
-
 				.book-img
 					img(src="https://picsum.photos/450/620?random="+b)
+
 		section.specials.wrap
 			.flex
 				.specials-title
