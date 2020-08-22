@@ -76,6 +76,10 @@ h3 {
 	text-align: center;
 }
 
+.testing {
+	display: none;
+}
+
 .flex {
 	display: flex;
 	justify-content: space-between;
@@ -214,7 +218,21 @@ section {
 	}
 }
 
-.package-gallery {
+.arrows {
+	i {
+		margin: 2px;
+		padding: 0.25rem 0.5rem;
+		border: 0.5px solid gray;
+		border-radius: 3px;
+		cursor: pointer;
+		&:hover {
+			color: var(--clr-light);
+			background: var(--clr);
+		}
+	}
+}
+
+.packages-gallery {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	justify-items: center;
@@ -227,6 +245,7 @@ section {
 	}
 	.cell {
 		max-width: 450px;
+		border-radius: 0 0 3px 3px;
 		background: var(--clr-light);
 		overflow: hidden;
 		transition: transform 0.3s;
@@ -237,6 +256,7 @@ section {
 			z-index: 69;
 		}
 		&-text {
+			padding: 0.5rem;
 			text-align: left;
 		}
 	}
@@ -309,7 +329,7 @@ section {
 }
 
 .specials-gallery {
-	@extend .package-gallery;
+	@extend .packages-gallery;
 	.cell {
 		max-width: 300px;
 	}
