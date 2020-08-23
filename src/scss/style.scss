@@ -3,7 +3,7 @@ $minWidthLg: 1190px;
 $minWidthMed: 950px;
 $minWidthSml: 656px;
 //- //>Base settings
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
 
 :root {
 	--clr: salmon;
@@ -91,9 +91,15 @@ p {
 	}
 }
 
+.wrap > .flex {
+	flex-wrap: wrap-reverse;
+}
+
+//todo better buttons
 .btn {
 	padding: 0.5em 0.75em;
 	display: inline-block;
+	color: var(--clr-light);
 	background: var(--clr);
 	border: none;
 }
@@ -237,6 +243,7 @@ header {
 	}
 }
 
+//todo better contrast
 .features {
 	background: var(--clr-secondary);
 	@media (max-width: $minWidthLg) {
@@ -281,9 +288,13 @@ section {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	flex-wrap: wrap;
 	h2 {
 		margin-right: 2rem;
 		text-transform: uppercase;
+	}
+	h3 {
+		font-size: small;
 	}
 }
 
@@ -338,7 +349,8 @@ section {
 			top: 10px;
 			left: -5px;
 			padding: 5px;
-			color: var(--clr-light);
+			color: var(--clr-dark);
+			font-weight: bolder;
 			background: var(--clr-highlight);
 			z-index: 1;
 		}
