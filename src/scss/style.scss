@@ -8,7 +8,9 @@ $minWidthSml: 656px;
 :root {
 	--clr: salmon;
 	--clr-light: white;
-	--ctr-dark: black;
+	--clr-border: lightgrey;
+	--clr-shadow: 0px 0px 0.75px 0.2px var(--clr-border);
+	--clr-dark: black;
 	--clr-highlight: salmon;
 	--clr-secondary: rgb(212, 235, 253);
 	--clr-secondary-dark: rgb(6, 91, 156);
@@ -37,6 +39,7 @@ body {
 
 a,
 .btn {
+	display: inline-block;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -63,6 +66,10 @@ h3 {
 	color: var(--clr-secondary-dark);
 }
 
+p {
+	font-family: 'Lato', sans-serif;
+}
+
 .wrap {
 	max-width: $minWidthLg;
 	margin: 0 auto;
@@ -74,10 +81,6 @@ h3 {
 
 .center {
 	text-align: center;
-}
-
-.testing {
-	display: none;
 }
 
 .flex {
@@ -101,11 +104,55 @@ header {
 	}
 }
 
+.canHazBurger {
+	display: grid;
+	gap: 4px;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	cursor: pointer;
+	@media (min-width: $minWidthMed) {
+		display: none;
+		visibility: hidden;
+	}
+	li {
+		width: 25px;
+		height: 3px;
+		background: black;
+	}
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
+	@media (min-width: $minWidthMed) {
+		display: flex;
+		visibility: visible;
+	}
+}
+
 .navContact {
 	font-size: 0.85rem;
 	li {
 		padding: 1em;
 		display: inline-block;
+	}
+	.phone {
+		display: inline-block;
+		padding: 0 5px;
+		&::before {
+			content: '(800) 555-5555';
+			@media (max-width: $minWidthSml) {
+				display: none;
+				visibility: hidden;
+			}
+		}
+	}
+	.email {
+		@extend .phone;
+		&::before {
+			content: 'info@explore.com';
+		}
 	}
 }
 
@@ -122,6 +169,24 @@ header {
 		padding: 1em;
 		display: inline-block;
 		text-transform: uppercase;
+		cursor: pointer;
+		@media (min-width: $minWidthMed) {
+			display: inline-block;
+		}
+		&:hover {
+			color: var(--clr);
+		}
+		&::after {
+			content: '';
+			width: -0px;
+			height: 2px;
+			display: block;
+			background: var(--clr-secondary);
+			transition: width 0.35s;
+		}
+		&:hover::after {
+			width: 100%;
+		}
 	}
 }
 
@@ -166,6 +231,10 @@ header {
 		font-size: 2rem;
 		font-weight: bolder;
 	}
+	.box:not(:last-child) {
+		padding-right: 8%;
+		border-right: 1px solid var(--clr-border);
+	}
 }
 
 .features {
@@ -193,7 +262,7 @@ header {
 		display: inline-block;
 		text-transform: uppercase;
 		&::after {
-			content: attr(data-feature) '';
+			content: attr(data-feature) ''; //todo make icon a data attr
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -222,8 +291,8 @@ section {
 	i {
 		margin: 2px;
 		padding: 0.25rem 0.5rem;
-		border: 0.5px solid gray;
-		border-radius: 3px;
+		border: 0.5px solid var(--clr-border);
+		border-radius: 4px;
 		cursor: pointer;
 		&:hover {
 			color: var(--clr-light);
@@ -243,21 +312,42 @@ section {
 		object-fit: cover;
 		align-self: center;
 	}
+	h3,
+	p ~ p {
+		padding: 0 0.25rem;
+		display: inline-block;
+	}
+	p {
+		margin: 0;
+	}
 	.cell {
+		position: relative;
 		max-width: 450px;
-		border-radius: 0 0 3px 3px;
+		border-radius: 0 0 4px 4px;
 		background: var(--clr-light);
-		overflow: hidden;
 		transition: transform 0.3s;
 		&:hover {
 			position: relative;
 			transform: scale(1.05);
-			box-shadow: 0px 0px 0.75px 0.2px black;
+			box-shadow: 0px 0px 0.75px 0.2px grey;
 			z-index: 69;
+		}
+		&::after {
+			content: 'Sale -10%';
+			position: absolute;
+			top: 10px;
+			left: -5px;
+			padding: 5px;
+			color: var(--clr-light);
+			background: var(--clr-highlight);
+			z-index: 1;
 		}
 		&-text {
 			padding: 0.5rem;
 			text-align: left;
+		}
+		&-nav {
+			padding: 0.5rem 0;
 		}
 	}
 }
@@ -281,6 +371,56 @@ section {
 	}
 	.cell {
 		max-height: 650px;
+		position: relative;
+		&::before {
+			content: 'Location';
+			width: 100%;
+			position: absolute;
+			bottom: 100px;
+			left: 0;
+			color: var(--clr-light);
+			text-align: center;
+			font-size: xx-large;
+			font-weight: bold;
+			text-shadow: 2px 1px 2px var(--clr-dark);
+			z-index: 1;
+		}
+		&::after {
+			@extend ::before;
+			content: '340 trips booked';
+			bottom: 70px;
+			font-size: large;
+			font-weight: normal;
+		}
+	}
+}
+
+.social-icons {
+	i {
+		padding: 10px;
+		font-size: larger;
+	}
+}
+
+.category,
+.footer {
+	&-nav {
+		li {
+			padding: 5px 10px;
+			color: var(--clr-secondary-dark);
+			font-weight: 700;
+			cursor: pointer;
+			&:hover {
+				color: var(--clr-highlight);
+			}
+		}
+	}
+}
+
+.newsletter {
+	input {
+		margin: 0.25rem;
+		padding: 0.25rem;
 	}
 }
 
@@ -333,6 +473,44 @@ section {
 	.cell {
 		max-width: 300px;
 	}
+}
+
+.review {
+	&-cards {
+		.card {
+			margin: 0.55rem;
+			padding: 0.75rem;
+			background: pink;
+			border-radius: 4px;
+			&:last-child {
+				background: var(--clr-secondary);
+			}
+			&:first-child {
+				background: var(--clr-border);
+			}
+			h3 {
+				display: inline-block;
+			}
+			.stars {
+				i {
+					color: #dfda00;
+					text-shadow: 1px 1px 1px black;
+				}
+			}
+		}
+	}
+	&-user {
+		i {
+			margin: 0.25rem;
+			padding: 0.51rem;
+			background: var(--clr-light);
+			border-radius: 99px;
+		}
+	}
+}
+
+.footer-nav {
+	text-align: center;
 }
 
 footer {

@@ -12,12 +12,14 @@ html(lang="en")
 
 	body
 		header
-			nav.wrap.flex
+			.wrap.flex
 				ul.navContact
 					li 
-						i.fas.fa-phone  (800) 555-5555
+						i.fas.fa-phone  
+						.phone
 					li 
-						i.fas.fa-envelope  info@explore.com
+						i.fas.fa-envelope
+						.email
 					li Eng
 
 				ul.navUser
@@ -32,12 +34,18 @@ html(lang="en")
 
 			.wrap.flex
 				.logo Explore 
-				ul.navMain
-					li Home
-					li Catalog
-					li Collections
-					li Specials
-					li Contact Us
+				ul.canHazBurger
+					li
+					li
+					li
+				nav.hidden
+					ul.navMain
+						li Home
+						li Catalog
+						li Collections
+						li Specials
+						li Contact Us
+						
 		.hero
 			.wrap
 				h3 Be inspired
@@ -52,7 +60,7 @@ html(lang="en")
 						p Places
 					.box
 						h3 9000+
-						p Trips
+						p Trips Booked
 				p
 					a.btn() Explore Now
 
@@ -91,8 +99,8 @@ html(lang="en")
 						.cell
 							img(src="https://picsum.photos/450/200?random="+a)
 							.cell-text 
-								span Cabin in da woods
-								p from 
+								p Place to adventure
+									p from 
 									h3.price $700-$800
 								.cell-nav.flex
 									a.btn() Buy Now
@@ -100,6 +108,7 @@ html(lang="en")
 										i.fas.fa-search
 										i.fas.fa-heart
 							-a--
+
 		section.wrap
 			.flex
 				.destinations
@@ -117,6 +126,7 @@ html(lang="en")
 				.cell
 					img(src="https://picsum.photos/450/650?random="+b)
 					-b--
+
 		section.wrap.flex
 			.category
 				h2 Browse Tours by Category
@@ -136,6 +146,7 @@ html(lang="en")
 						li ab veritatis
 						li dolorum doloribus
 						li esse repellat
+
 			.newsletter
 				h2 Our Newsletter
 				p Sign up to stay informed on latest sales!
@@ -146,6 +157,7 @@ html(lang="en")
 					i.fab.fa-github
 					i.fab.fa-codepen
 					i.fab.fa-instagram
+					
 		section.book
 			.wrap.flex
 				.book-text
@@ -178,8 +190,8 @@ html(lang="en")
 					.cell
 						img(src="https://picsum.photos/300/200?random="+c)
 						.cell-text 
-							span Cabin in da woods
-							p from 
+							p Place to get away
+								p from 
 								h3.price $700-$800
 							.cell-nav.flex
 								a.btn() Buy Now
@@ -202,13 +214,19 @@ html(lang="en")
 						span Review for 
 							h3 Category
 						.stars
+							i.fas.fa-star
+							i.fas.fa-star
+							i.fas.fa-star
+							i.fas.fa-star
+							i.fas.fa-star
 						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus saepe unde nesciunt repellendus fugiat libero ullam eligendi magni? Ab perferendis sapiente beatae expedita autem cum, officiis asperiores. Amet, natus quo.
 						span.review-user
 							i.fas.fa-user
 							span Bill Murray
 							-d--
+
 		footer
-			.nav-footer.wrap.flex
+			.footer-nav.wrap.flex
 				ul Customer Service
 					li item1
 					li item2
@@ -233,6 +251,7 @@ html(lang="en")
 					li item3
 					li item4
 					li item5
+
 			.links.wrap.flex
 				h4 copyright stuffs 2020
 				.links-paymentTypes
