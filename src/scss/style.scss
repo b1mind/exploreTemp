@@ -11,7 +11,7 @@ $minWidthSml: 656px;
 	--clr-border: lightgrey;
 	--clr-shadow: 0px 0px 0.75px 0.2px var(--clr-border);
 	--clr-dark: black;
-	--clr-highlight: salmon;
+	--clr-highlight: rgb(138, 48, 38);
 	--clr-secondary: rgb(212, 235, 253);
 	--clr-secondary-dark: rgb(6, 91, 156);
 }
@@ -92,14 +92,18 @@ p {
 }
 
 .wrap > .flex {
-	flex-wrap: wrap-reverse;
+	@media (max-width: $minWidthSml) {
+		flex-wrap: wrap-reverse;
+		justify-content: flex-end;
+	}
 }
 
 //todo better buttons
 .btn {
 	padding: 0.5em 0.75em;
 	display: inline-block;
-	color: var(--clr-light);
+	color: var(--clr-highlight);
+	font-weight: bolder;
 	background: var(--clr);
 	border: none;
 }
@@ -138,7 +142,7 @@ header {
 }
 
 .navContact {
-	font-size: 0.85rem;
+	font-size: 1rem;
 	li {
 		padding: 1em;
 		display: inline-block;
@@ -243,7 +247,6 @@ header {
 	}
 }
 
-//todo better contrast
 .features {
 	background: var(--clr-secondary);
 	@media (max-width: $minWidthLg) {
@@ -269,7 +272,8 @@ header {
 		display: inline-block;
 		text-transform: uppercase;
 		&::after {
-			content: attr(data-feature) ''; //todo make icon a data attr
+			//todo make icon a data attr
+			content: attr(data-feature) '';
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -312,6 +316,7 @@ section {
 	}
 }
 
+//todo better contrast and clean up
 .packages-gallery {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -323,13 +328,14 @@ section {
 		object-fit: cover;
 		align-self: center;
 	}
-	h3,
+	/* h3,
 	p ~ p {
 		padding: 0 0.25rem;
 		display: inline-block;
-	}
+	} */
 	p {
 		margin: 0;
+		font-size: large;
 	}
 	.cell {
 		position: relative;
@@ -349,9 +355,9 @@ section {
 			top: 10px;
 			left: -5px;
 			padding: 5px;
-			color: var(--clr-dark);
+			color: var(--clr-light);
 			font-weight: bolder;
-			background: var(--clr-highlight);
+			background: grey;
 			z-index: 1;
 		}
 		&-text {
@@ -423,7 +429,7 @@ section {
 			font-weight: 700;
 			cursor: pointer;
 			&:hover {
-				color: var(--clr-highlight);
+				color: var(--clr);
 			}
 		}
 	}
